@@ -36,8 +36,6 @@ exports.getTeacher = async (req, res) => {
   res.send(teacher);
 }
 
-
-
 exports.createTeacher = async (req, res) => {
   const teacher = await db.teacher.findByPk(req.params.id);
   await teacher.setSubjects(req.body.subjectIds);

@@ -16,14 +16,10 @@ exports.delete = async (req, res) => {
   res.send({ message: "Deleted successfully!" });
 };
 
-
-
-
-
-  exports.getstudent = async (req, res) => {
+exports.getstudent = async (req, res) => {
   try {
     const student = await db.student.findByPk(req.params.id, {
-      include: db.subject  
+      include: db.subject
     });
 
     if (!student) {
@@ -37,9 +33,7 @@ exports.delete = async (req, res) => {
   }
 }
 
-
-  
-  exports.createSubject = async (req, res) => {
+exports.createSubject = async (req, res) => {
   try {
     const student = await db.student.findByPk(req.params.id);
     if (!student) {
@@ -52,7 +46,7 @@ exports.delete = async (req, res) => {
       return res.status(400).send({ message: 'subjectIds must be an array' });
     }
 
-    await student.setSubjects(subjectIds); 
+    await student.setSubjects(subjectIds);
     res.send({ message: 'Subjects assigned successfully' });
   } catch (error) {
     console.error('Error assigning subjects to student:', error);

@@ -33,8 +33,6 @@ exports.delete = async (req, res) => {
   }
 };
 
-
-  
   exports.subjectDetails = async (req, res) => {
   try {
     const subject = await db.subject.findByPk(req.params.id, {
